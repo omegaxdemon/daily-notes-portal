@@ -3,11 +3,11 @@
  *
  * Thin wrapper around the Google Drive v3 API.
  *
- * Uses a Google Service Account so the backend can list files without
- * requiring user OAuth.
+ * Supports BOTH:
+ * 1. Local development using credentials.json
+ * 2. Render using GOOGLE_SERVICE_ACCOUNT_JSON
  *
- * If Google Drive isn't configured, the service automatically falls back
- * to a mocked dataset so the frontend remains fully testable.
+ * Falls back to mocked data if Drive isn't configured.
  */
 
 const fs = require("fs");
@@ -25,37 +25,82 @@ let cachedDriveError = null;
  * Lazily creates the Google Drive client.
  */
 function getDriveClient() {
+
   if (cachedDrive) return cachedDrive;
   if (cachedDriveError) return null;
 
-  const keyPath = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH;
-
-  if (!keyPath) {
-    console.warn(
-      "[driveService] GOOGLE_SERVICE_ACCOUNT_KEY_PATH not set. Using MOCK mode."
-    );
-    cachedDriveError = new Error("Missing key path");
-    return null;
-  }
-
-  const absoluteKeyPath = path.isAbsolute(keyPath)
-    ? keyPath
-    : path.join(__dirname, "..", keyPath);
-
-  if (!fs.existsSync(absoluteKeyPath)) {
-    console.warn(
-      `[driveService] Service account key not found: ${absoluteKeyPath}`
-    );
-
-    cachedDriveError = new Error("Key file missing");
-    return null;
-  }
-
   try {
-    const auth = new google.auth.GoogleAuth({
-      keyFile: absoluteKeyPath,
-      scopes: SCOPES,
-    });
+
+    let auth;
+
+    // ============================================================
+    // Render / Production
+    // ============================================================
+
+    if (process.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
+
+      const credentials = JSON.parse(
+        process.env.GOOGLE_SERVICE_ACCOUNT_JSON
+      );
+
+      auth = new google.auth.GoogleAuth({
+        credentials,
+        scopes: SCOPES,
+      });
+
+      console.log(
+        "[driveService] Using GOOGLE_SERVICE_ACCOUNT_JSON"
+      );
+
+    }
+
+    // ============================================================
+    // Local Development
+    // ============================================================
+
+    else {
+
+      const keyPath =
+        process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH;
+
+      if (!keyPath) {
+
+        console.warn(
+          "[driveService] GOOGLE_SERVICE_ACCOUNT_KEY_PATH not set. Using MOCK mode."
+        );
+
+        cachedDriveError = new Error("Missing credentials");
+
+        return null;
+
+      }
+
+      const absoluteKeyPath = path.isAbsolute(keyPath)
+        ? keyPath
+        : path.join(__dirname, "..", keyPath);
+
+      if (!fs.existsSync(absoluteKeyPath)) {
+
+        console.warn(
+          `[driveService] Service account key not found: ${absoluteKeyPath}`
+        );
+
+        cachedDriveError = new Error("Key file missing");
+
+        return null;
+
+      }
+
+      auth = new google.auth.GoogleAuth({
+        keyFile: absoluteKeyPath,
+        scopes: SCOPES,
+      });
+
+      console.log(
+        "[driveService] Using local credentials.json"
+      );
+
+    }
 
     cachedDrive = google.drive({
       version: "v3",
@@ -65,14 +110,18 @@ function getDriveClient() {
     return cachedDrive;
 
   } catch (err) {
+
     console.error(
       "[driveService] Failed to initialise Google Drive:",
       err
     );
 
     cachedDriveError = err;
+
     return null;
+
   }
+
 }
 
 /**
