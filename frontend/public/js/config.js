@@ -7,7 +7,7 @@
 
 window.APP_CONFIG = Object.freeze({
   // API_BASE: `${window.location.origin}/api`,
-  API_BASE: "http://localhost:8001/api",
+  API_BASE: "https://daily-notes-portal-api.onrender.com/api",
   SESSION_KEY: "dnp_session_v1",
 });
 
