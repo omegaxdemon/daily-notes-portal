@@ -1,0 +1,12 @@
+{
+  "name": "daily-notes-portal-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vanilla HTML/CSS/JS + Bootstrap 5 frontend for the Daily Notes Portal",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

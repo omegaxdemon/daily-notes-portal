@@ -1,0 +1,99 @@
+{
+  "project_type": "vanilla_html_css_bootstrap5",
+  "theme": "dark",
+  "typography": {
+    "primary_font": "Outfit, sans-serif",
+    "secondary_font": "'Plus Jakarta Sans', sans-serif",
+    "css_variables": {
+      "--font-heading": "'Outfit', sans-serif",
+      "--font-body": "'Plus Jakarta Sans', sans-serif"
+    },
+    "guidelines": "Use Outfit for all headings (H1-H6) and primary display text. Use Plus Jakarta Sans for body text, forms, and smaller UI elements. Ensure high legibility."
+  },
+  "colors": {
+    "css_variables": {
+      "--bg-root": "#05030A",
+      "--bg-surface": "#120E1C",
+      "--primary-purple": "#A855F7",
+      "--primary-purple-hover": "#C084FC",
+      "--text-primary": "#F8FAFC",
+      "--text-secondary": "#94A3B8",
+      "--border-glass": "rgba(255, 255, 255, 0.08)",
+      "--bg-glass": "rgba(20, 15, 30, 0.4)",
+      "--bg-glass-hover": "rgba(30, 20, 50, 0.6)",
+      "--shadow-glass": "0 8px 32px 0 rgba(0, 0, 0, 0.4)",
+      "--glow-purple": "rgba(168, 85, 247, 0.3)"
+    },
+    "guidelines": "The theme is strictly dark. Never use pure white or pure black; use tinted dark purples/blues. Primary accent is a vibrant electric purple. Provide depth using glassmorphism, not flat colors."
+  },
+  "glassmorphism": {
+    "classes": {
+      ".glass-panel": "background: var(--bg-glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-glass); border-radius: 16px; box-shadow: var(--shadow-glass);",
+      ".glass-card": "background: var(--bg-glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-glass); border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;",
+      ".glass-card:hover": "transform: translateY(-4px); box-shadow: 0 12px 40px 0 var(--glow-purple); border-color: rgba(255, 255, 255, 0.15); background: var(--bg-glass-hover);"
+    }
+  },
+  "motion": {
+    "classes": {
+      ".fade-in-up": "animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;",
+      ".stagger-1": "animation-delay: 0.1s;",
+      ".stagger-2": "animation-delay: 0.2s;",
+      ".smooth-transition": "transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;"
+    },
+    "keyframes": "@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }"
+  },
+  "components": {
+    "background_layer": {
+      "style": "Use a deep gradient mesh or radial gradient on the body to avoid flat black. Example: background: radial-gradient(circle at 50% 0%, #1a1025 0%, var(--bg-root) 70%);",
+      "layout": "Applied to body or a fixed background div."
+    },
+    "login_card": {
+      "layout": "Centered vertically and horizontally using Bootstrap '.d-flex .align-items-center .justify-content-center .min-vh-100'.",
+      "style": "Use '.glass-panel' with a max-width: 400px; padding: 2rem;. Inputs should have transparent backgrounds, bottom borders or subtle full borders with focus rings in '--primary-purple'.",
+      "button": "Pill-shaped or rounded-3. Background: '--primary-purple'. Glow effect on hover."
+    },
+    "dashboard_greeting": {
+      "typography": "H1 using '--font-heading', tracking-tight. Dynamic text based on time. Include a subtle gradient text effect on the user's name: background-clip: text, -webkit-text-fill-color: transparent, linear-gradient(90deg, #A855F7, #C084FC).",
+      "layout": "Placed at the top of the dashboard inside a container with generous top padding (pt-5)."
+    },
+    "date_picker": {
+      "style": "Do NOT use default unstyled browser date picker. Wrap it in a '.glass-panel' container. Style the native input with dark background, purple accent, and custom calendar icon.",
+      "layout": "Centered or left-aligned next to the 'View Notes' button. Use Bootstrap grids or flexbox for alignment. Add a prominent 'View Notes' primary button."
+    },
+    "file_cards": {
+      "layout": "Bootstrap grid: '.col-12 .col-md-6 .col-lg-4'.",
+      "style": "Use '.glass-card'. Inside: Icon on top/left, filename (truncate if too long), action buttons at bottom. Icons should be distinct for PDF, DOCX, PPTX, etc.",
+      "actions": "Use Bootstrap '.btn .btn-sm'. View button (outline), Download button (solid purple)."
+    },
+    "empty_state": {
+      "style": "Subtle, centered text with a low-opacity icon (e.g., Phosphor empty folder icon). Use '--text-secondary'.",
+      "layout": "Centered in the main view area with plenty of padding."
+    },
+    "back_button": {
+      "style": "Minimalistic outline or ghost button. Use '.btn-outline-light' with low opacity border, or custom glass styling. Icon on the left.",
+      "layout": "Placed at the top-left of the Dashboard and Notes Viewer pages."
+    }
+  },
+  "layouts": {
+    "general": "Always wrap main content in a '.container' or '.container-fluid'. Use generous spacing (e.g., '.py-5', '.gap-4'). Implement a responsive grid."
+  },
+  "instructions_to_main_agent": [
+    "Use Bootstrap 5 utility classes for layout, spacing, and typography.",
+    "Add the custom CSS variables and glassmorphism classes to a global 'styles.css' file.",
+    "Implement the pages as pure HTML files (index.html, dashboard.html, notes.html) avoiding frameworks like React.",
+    "Write vanilla JavaScript in a separate file (e.g., app.js) to handle the login simulation, time-based greeting, and date selection logic.",
+    "Include Phosphor Icons via CDN for modern, clean iconography. Example: <script src=\"https://unpkg.com/@phosphor-icons/web\"></script>",
+    "Ensure the background has a subtle radial gradient or animated mesh to enhance the premium feel, rather than just flat black.",
+    "Avoid the generic Bootstrap look by applying the custom glassmorphism classes instead of standard Bootstrap cards.",
+    "Ensure inputs and selects in the login form and date picker are heavily styled to match the dark glass theme, removing default white backgrounds and blue focus rings."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "You MUST NOT apply universal transition (e.g., transition: all). Add transitions for specific properties.",
+    "You MUST NOT center align the app container in a way that disrupts natural reading flow.",
+    "Use modern button styles (pill-shaped or rounded) with interaction animations.",
+    "NEVER use pure white or pure black text/backgrounds. Always tint them slightly.",
+    "All interactive and key informational elements MUST include a 'data-testid' attribute (e.g., data-testid='login-button', data-testid='view-notes-button').",
+    "Never use pure transparent backgrounds over content for dropdowns/modals; use glassmorphism with blur.",
+    "Avoid generic Bootstrap looks by aggressively overriding borders, shadows, and background colors with the provided CSS variables."
+  ]
+}

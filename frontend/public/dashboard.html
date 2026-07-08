@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard — Daily Notes Portal</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    <link rel="shortcut icon" href="notes.png" type="image/x-icon">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ========================================================= -->
+        <!-- Top Navigation -->
+        <!-- ========================================================= -->
+
+        <header
+            class="topbar fade-in-up"
+            data-testid="dashboard-topbar">
+
+            <div
+                class="brand-title"
+                data-testid="brand-title">
+
+                <span class="brand-dot"></span>
+
+                <span>Daily Notes</span>
+
+                <span class="brand-name">Portal</span>
+
+            </div>
+
+            <div class="actions">
+
+                <button
+                    type="button"
+                    id="back-to-login"
+                    class="btn-ghost"
+                    aria-label="Return to login page"
+                    data-testid="dashboard-back-button">
+
+                    <i
+                        class="ph ph-arrow-left"
+                        aria-hidden="true">
+                    </i>
+
+                    <span>Back</span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- ========================================================= -->
+        <!-- Greeting -->
+        <!-- ========================================================= -->
+
+        <section class="greeting-wrap fade-in-up stagger-1">
+
+            <h1
+                class="greeting-line"
+                data-testid="dashboard-greeting">
+
+                <span id="greeting-prefix">
+                    Hello,
+                </span>
+
+                <span
+                    id="greeting-name"
+                    class="gradient-text"
+                    data-testid="dashboard-greeting-name">
+
+                    Student
+
+                </span>
+
+            </h1>
+
+            <p
+                id="today-date-line"
+                class="greeting-sub"
+                data-testid="dashboard-date-today">
+            </p>
+
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- Date Selection -->
+        <!-- ========================================================= -->
+
+        <section
+            class="glass-panel date-panel fade-in-up stagger-2"
+            data-testid="dashboard-date-panel">
+
+            <div class="row g-4 align-items-end">
+
+                <div class="col-12 col-lg-7">
+
+                    <label
+                        for="date-picker"
+                        class="date-panel-label">
+
+                        Pick a date
+
+                    </label>
+
+                    <p class="date-panel-hint">
+                        Select the day whose class notes you want to view.
+                    </p>
+
+                    <input
+                        id="date-picker"
+                        type="date"
+                        class="form-control-dark"
+                        aria-label="Select date"
+                        data-testid="dashboard-date-picker">
+
+                </div>
+
+                <div class="col-12 col-lg-5 text-lg-end">
+
+                    <button
+                        id="view-notes-btn"
+                        type="button"
+                        class="btn btn-primary-glow w-100 w-lg-auto"
+                        aria-label="View notes for selected date"
+                        data-testid="dashboard-view-notes-button">
+
+                        <i
+                            class="ph ph-file-text me-2"
+                            aria-hidden="true">
+                        </i>
+
+                        View Notes
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div
+                id="status-line"
+                class="status-line"
+                role="status"
+                aria-live="polite"
+                data-testid="dashboard-status-line">
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- Shared Config -->
+    <script src="/js/config.js"></script>
+
+    <!-- Dashboard Logic -->
+    <script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>
