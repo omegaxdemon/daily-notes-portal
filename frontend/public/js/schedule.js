@@ -125,7 +125,7 @@
         statusIcon.innerHTML = `
 <div class="live-indicator">
     <span class="live-dot"></span>
-    CURRENT CLASS
+    LIVE
 </div>
 `;
         statusTitle.textContent = "Current Class";
