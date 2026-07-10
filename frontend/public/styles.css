@@ -813,3 +813,27 @@ input[type="date"].form-control-dark::-webkit-calendar-picker-indicator {
     }
 
 }
+
+/* ==========================================================
+   Mobile Schedule Widget
+========================================================== */
+
+@media (max-width: 768px){
+
+    .schedule-widget{
+
+        position:relative;
+
+        top:0;
+
+        right:0;
+
+        width:calc(100% - 40px);
+
+        margin:20px auto 15px;
+
+        z-index:1;
+
+    }
+
+}
