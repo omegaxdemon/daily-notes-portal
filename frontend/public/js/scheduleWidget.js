@@ -41,9 +41,16 @@
     if (schedule.length === 0) {
 
         content.innerHTML = `
-            🌴 <strong>Holiday</strong><br>
-            No classes today.
-        `;
+    <div class="widget-state">🌴 Holiday</div>
+
+    <div class="widget-subject">
+        No Classes Today
+    </div>
+
+    <div class="widget-room">
+        Enjoy your day!
+    </div>
+`;
 
         return;
 
@@ -84,14 +91,24 @@
             nowMinutes;
 
         content.innerHTML = `
-            🟢 <strong>Current Class</strong><br><br>
+    <div class="widget-state live">
+        <span class="live-dot"></span>
 
-            <strong>${currentClass.subject}</strong><br>
+        CURRENT CLASS
+    </div>
 
-            📍 ${currentClass.room}<br>
+    <div class="widget-subject">
+        ${currentClass.subject}
+    </div>
 
-            Ends in ${left} min
-        `;
+    <div class="widget-room">
+        📍 ${currentClass.room}
+    </div>
+
+    <div class="widget-time">
+        Ends in ${left} min
+    </div>
+`;
 
     }
 
@@ -102,23 +119,40 @@
             nowMinutes;
 
         content.innerHTML = `
-            ⏳ <strong>Next Class</strong><br><br>
+    <div class="widget-state">
+        ⏳ NEXT CLASS
+    </div>
 
-            <strong>${nextClass.subject}</strong><br>
+    <div class="widget-subject">
+        ${nextClass.subject}
+    </div>
 
-            📍 ${nextClass.room}<br>
+    <div class="widget-room">
+        📍 ${nextClass.room}
+    </div>
 
-            Starts in ${left} min
-        `;
+    <div class="widget-time">
+        Starts in ${left} min
+    </div>
+`;
 
     }
 
     else {
 
         content.innerHTML = `
-            🎉 <strong>College Over</strong><br>
-            See you tomorrow.
-        `;
+    <div class="widget-state">
+        🎉 COLLEGE OVER
+    </div>
+
+    <div class="widget-subject">
+        All Classes Finished
+    </div>
+
+    <div class="widget-room">
+        See you tomorrow!
+    </div>
+`;
 
     }
 
