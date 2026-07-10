@@ -36,17 +36,21 @@
 <body>
 
 <!--Schedule Site-->
-    <div class="top-actions">
+    <div class="schedule-widget" id="schedule-widget">
 
-    <a
-        href="schedule.html"
-        class="btn-ghost">
+    <div class="widget-title">
 
         <i class="ph ph-calendar"></i>
 
         Today's Schedule
 
-    </a>
+    </div>
+
+    <div id="widget-content">
+
+        Loading...
+
+    </div>
 
 </div>
     
@@ -174,13 +178,16 @@
 <!-- Configuration -->
 <script src="/js/config.js"></script>
 
+<script src="js/timetable.js"></script>
+
+<script src="js/scheduleWidget.js"></script>
 <!-- Login Logic -->
 <script src="/js/login.js"></script>
 
 <footer
     class="text-center mt-5 mb-3"
     style="color: var(--text-muted); font-size: 0.85rem;">
-    &copy; Daily Notes Portal v1.0 <br>
+    &copy; Daily Notes Portal v1.2 <br>
 
 Designed & Developed by
 Debottam Chatterjee<br>
