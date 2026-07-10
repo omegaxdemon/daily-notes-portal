@@ -494,3 +494,69 @@ input[type="date"].form-control-dark::-webkit-calendar-picker-indicator {
   .date-panel { padding: 1.5rem; }
   .topbar { flex-wrap: wrap; gap: 0.75rem; }
 }
+
+/* ==========================================================
+   Schedule Widget (Login Page)
+========================================================== */
+
+.schedule-widget{
+
+    position:fixed;
+
+    top:35px;
+
+    right:35px;
+
+    width:280px;
+
+    padding:20px;
+
+    border-radius:22px;
+
+    background:var(--bg-glass);
+
+    border:1px solid var(--border-glass);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:var(--shadow-glass);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    z-index:100;
+
+}
+
+.schedule-widget:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 0 30px var(--glow-purple);
+
+}
+
+.widget-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-weight:700;
+
+    font-size:1rem;
+
+    margin-bottom:16px;
+
+}
+
+#widget-content{
+
+    color:var(--text-secondary);
+
+    line-height:1.6;
+
+}
