@@ -822,7 +822,7 @@ input[type="date"].form-control-dark::-webkit-calendar-picker-indicator {
 
     .schedule-widget{
 
-        position:relative;
+        position:sticky;
 
         bottom:0;
 
