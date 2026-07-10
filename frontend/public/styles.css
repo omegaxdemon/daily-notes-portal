@@ -824,7 +824,7 @@ input[type="date"].form-control-dark::-webkit-calendar-picker-indicator {
 
         position:relative;
 
-        top:0;
+        bottom:0;
 
         right:0;
 
