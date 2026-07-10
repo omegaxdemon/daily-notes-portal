@@ -186,16 +186,8 @@ const timetable = {
         {
             subject: "Compiler Design",
             start: "12:00",
-            end: "12:45",
-            room: "Room 40A",
-            teacher: "AN"
-        },
-
-        {
-            subject: "Compiler Design",
-            start: "13:15",
-            end: "14:05",
-            room: "Room 40A",
+            end: "13:30",
+            room: "Room CLAB3",
             teacher: "AN"
         }
 
