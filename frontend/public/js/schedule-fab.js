@@ -194,7 +194,7 @@ function updatePreview(){
 
         else {
 
-            window.location.href = "/frontend/public/schedule.html";
+            window.location.href = "frontend/public/schedule.html";
 
         }
 
