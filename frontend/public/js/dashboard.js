@@ -191,3 +191,57 @@
   });
 
 })();
+
+//------------------------------------------------------
+// Floating Notification Button
+//------------------------------------------------------
+
+(async () => {
+
+    const fab =
+        document.getElementById("notification-fab");
+
+    const badge =
+        document.getElementById("notification-badge");
+
+    if (!fab || !badge) return;
+
+    fab.addEventListener("click", () => {
+
+        window.location.href = "notifications.html";
+
+    });
+
+    try {
+
+        const response =
+            await fetch("notifications.json");
+
+        const notices =
+            await response.json();
+
+        const today = new Date();
+
+        const hasNew = notices.some(notice => {
+
+            const [d, m, y] = notice.date.split("/").map(Number);
+
+            return (
+                d === today.getDate() &&
+                m === today.getMonth() + 1 &&
+                y === today.getFullYear() % 100
+            );
+
+        });
+
+        badge.hidden = !hasNew;
+
+    }
+
+    catch(err){
+
+        console.error(err);
+
+    }
+
+})();
