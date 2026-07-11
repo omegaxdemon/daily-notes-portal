@@ -1,4 +1,4 @@
-/**
+/*
  * Timetable Data
  * CMSA Semester VII
  *
