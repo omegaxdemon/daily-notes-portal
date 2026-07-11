@@ -1094,19 +1094,33 @@ input[type="date"].form-control-dark::-webkit-calendar-picker-indicator {
 
 /* Hide on Desktop */
 
-.floating-fab{
+/* .floating-fab{
 
     display:none;
 
-}
+} */
 
 /* Show only on Mobile */
 
-@media(max-width:768px){
+/* @media(max-width:768px){
 
     .home-page .floating-fab{
 
         display:flex;
+
+    }
+
+} */
+
+/* ==========================================================
+   Homepage Only
+========================================================== */
+
+@media(min-width:769px){
+
+    .home-page .floating-fab{
+
+        display:none;
 
     }
 
