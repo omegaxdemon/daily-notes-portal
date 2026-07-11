@@ -117,7 +117,7 @@
         try{
 
             const response =
-                await fetch("notifications.json");
+                await fetch("/frontend/public/notifications.json");
 
             const notices =
                 await response.json();
