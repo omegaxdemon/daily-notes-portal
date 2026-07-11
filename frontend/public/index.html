@@ -36,7 +36,7 @@
 <body>
 
 <!--Schedule Site-->
-    <div class="schedule-widget" id="schedule-widget">
+    <!-- <div class="schedule-widget" id="schedule-widget">
 
     <div class="widget-title">
 
@@ -49,6 +49,136 @@
     <div id="widget-content">
 
         Loading...
+
+    </div>
+
+</div> -->
+
+        <!-- ========================================================= -->
+<!-- Floating Notification Button (Mobile) -->
+<!-- ========================================================= -->
+
+<button
+    id="notification-fab"
+    class="floating-fab notification-fab"
+    aria-label="Open Notifications"
+>
+
+    <i class="ph-fill ph-bell"></i>
+
+    <span
+        id="notification-badge"
+        class="notification-badge"
+        hidden
+    ></span>
+
+</button>
+
+<!-- ========================================================= -->
+<!-- Floating Schedule Button (Mobile) -->
+<!-- ========================================================= -->
+
+<button
+    id="schedule-fab"
+    class="floating-fab schedule-fab"
+    aria-label="Today's Schedule"
+>
+
+    <i class="ph-fill ph-calendar-check"></i>
+
+</button>
+
+<!-- ========================================================= -->
+<!-- Floating Schedule Preview (Mobile) -->
+<!-- ========================================================= -->
+
+<div
+    id="schedule-preview"
+    class="schedule-preview"
+>
+
+    <div
+        id="schedule-preview-status"
+        class="schedule-preview-status"
+    >
+
+        <i
+            class="ph-fill ph-book-open"
+        ></i>
+
+        LIVE
+
+    </div>
+
+    <div
+        id="schedule-preview-subject"
+        class="schedule-preview-subject"
+    >
+
+        Security & Privacy • Room 40A • SMC
+
+    </div>
+
+    <div
+        id="schedule-preview-time"
+        class="schedule-preview-time"
+    >
+
+        Ends in 24 min
+
+    </div>
+
+</div>
+
+    <div class="widget-container">
+
+    <!-- ========================= -->
+    <!-- Schedule Widget -->
+    <!-- ========================= -->
+
+    <div
+        class="schedule-widget glass-panel"
+        id="schedule-widget"
+    >
+
+        <div class="widget-title">
+
+            <i class="ph ph-calendar"></i>
+
+            Today's Schedule
+
+        </div>
+
+        <div id="widget-content">
+
+            Loading...
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Notices Widget -->
+    <!-- ========================= -->
+
+    <div
+        class="notice-widget glass-panel"
+        id="notice-widget"
+    >
+
+        <div class="widget-title">
+
+            <i class="ph ph-bell"></i>
+
+            Latest Notices
+
+        </div>
+
+        <div id="notice-widget-list">
+
+            <!-- notifications.js will populate this -->
+
+        </div>
 
     </div>
 
@@ -181,13 +311,17 @@
 <script src="js/timetable.js"></script>
 
 <script src="js/scheduleWidget.js"></script>
+<script src="js/timetable.js"></script>
+<script src="js/schedule-fab.js"></script>
+
+<script src="js/index-notices.js"></script>
 <!-- Login Logic -->
 <script src="/js/login.js"></script>
 
 <footer
     class="text-center mt-5 mb-3"
     style="color: var(--text-muted); font-size: 0.85rem;">
-    &copy; Daily Notes Portal v1.2 <br>
+    &copy; Daily Notes Portal v2.1 <br>
 
 Designed & Developed by
 Debottam Chatterjee<br>
