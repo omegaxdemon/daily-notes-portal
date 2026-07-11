@@ -1062,6 +1062,11 @@ input[type="date"].form-control-dark::-webkit-calendar-picker-indicator {
 
 }
 
+.home-page .notification-fab {
+    top:20px;
+    right:20px;
+}
+
 .schedule-fab{
 
     left:20px;
